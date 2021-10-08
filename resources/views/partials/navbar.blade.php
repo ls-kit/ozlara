@@ -1,29 +1,36 @@
-<nav class="bg-gray-800">
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-      <div class="relative flex items-center justify-between h-24 md:h-16">
-        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="sm:block sm:ml-3">
-            <div class="flex flex-wrap justify-center md:justify-start">
-                <a href="/"
-                    class=" @if(Request::path() == '/') bg-gray-900 @endif px-3 py-2 rounded-md text-sm font-medium leading-5 text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
-                    Dashboard
-                </a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarCollapse">
 
-                <a href="/products" class="@if(Request::path() == 'products') bg-gray-900 @endif ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
-                  Products
-                </a>
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link  @if(Request::path() == '/') active @endif" aria-current="page" href="/">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  @if(Request::getRequestUri() == '/products') active @endif" aria-current="page" href="/products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  @if(Request::getRequestUri() == '/customers') active @endif" aria-current="page" href="/customers">Customers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  @if(Request::getRequestUri() == '/settings') active @endif" aria-current="page" href="/settings">Settings</a>
+          </li>
 
-                <a href="/customers" class="@if(Request::path() == 'customers') bg-gray-900 @endif ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
-                  Customers
-                </a>
+        </ul>
 
-                <a href="/settings" class="@if(Request::path() == 'settings') bg-gray-900 @endif ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">
-                  Settings
-                </a>
+@php
+    echo Request::getRequestUri();
+@endphp
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
 
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-</nav>
+  </nav>
+
+
+
+
+

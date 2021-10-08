@@ -3,6 +3,8 @@
 @section('content')
 
 
+This is product
+
 
 @endsection
 
